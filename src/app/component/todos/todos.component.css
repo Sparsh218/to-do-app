@@ -1,0 +1,4 @@
+.completed {
+    color: darkgray;
+    text-decoration: line-through;
+}
