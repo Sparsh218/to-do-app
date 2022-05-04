@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ToDo } from 'src/app/model/Todo';
+import { Task } from 'src/app/model/Todo';
 import { TodoService } from 'src/app/service/todo.service';
 import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 
@@ -10,7 +10,7 @@ import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 })
 export class TodosComponent implements OnInit {
 
-  todos: ToDo[];
+  todos: Task[];
 
   // faTrashAlt = faTrashAlt;
 
@@ -19,20 +19,23 @@ export class TodosComponent implements OnInit {
   ngOnInit(): void {
     this.todoService.getTodos().subscribe(todos => {
       this.todos = todos;
+      console.log(this.todos);
     });
 
   }
 
-  addTodo(todo: ToDo) {
-    this.todoService.addTodo(todo);
+  addTodo(todo: Task) {
+    this.todoService.addTodo(todo).subscribe();
   }
 
-  deleteTodo(todo: ToDo) {
-    this.todoService.removeTodo(todo);
+  deleteTodo(todo: Task) {
+    this.todoService.removeTodo(todo).subscribe(output => {
+      console.log(output);
+    });
   }
 
-  changeTodoStatus(todo: ToDo) {
-    this.todoService.changeStatus(todo);
+  changeTodoStatus(todo: Task) {
+    this.todoService.changeStatus(todo).subscribe();
   }
 
 }

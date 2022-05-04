@@ -1,8 +1,8 @@
-export interface ToDo {
+export interface Task {
 
     id: String;
     title: String;
-    isCompleted: boolean;
+    checked: boolean;
     date: Date;
 
 }

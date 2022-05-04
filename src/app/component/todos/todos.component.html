@@ -3,12 +3,12 @@
     <li class="list-group-item d-flex justify-content-between w-100" *ngFor="let todo of todos">
 
         <span>
-            <input type="checkbox" [checked]="todo.isCompleted" (change)="changeTodoStatus(todo)">
+            <input type="checkbox" [checked]="todo.checked" (change)="changeTodoStatus(todo)">
         </span>
-        <span [ngClass]="{ completed : todo.isCompleted}">
+        <span [ngClass]="{ completed : todo.checked}">
             {{todo.title}}
         </span>
-        <span [ngClass]="{ completed : todo.isCompleted}">
+        <span [ngClass]="{ completed : todo.checked}">
             {{todo.date | date}}
         </span>
         <span>

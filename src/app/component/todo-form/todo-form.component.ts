@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ToDo } from 'src/app/model/Todo';
+import { Task } from 'src/app/model/Todo';
 import { TodoService } from 'src/app/service/todo.service';
 
 @Component({
@@ -17,14 +17,14 @@ export class TodoFormComponent implements OnInit {
   title: String;
 
   addTodo() {
-    const newTodo: ToDo = {
-      id: "1",
+    const newTodo: Task = {
+      id: "111",
       title: this.title,
-      isCompleted: false,
+      checked: false,
       date: new Date()
     }
 
-    this.todoService.addTodo(newTodo);
+    this.todoService.addTodo(newTodo).subscribe();
     this.title = "";
   }
 
